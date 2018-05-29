@@ -50,36 +50,45 @@ local function onRightArrowTouch( event )
 end
 
 local function onJumpButtonTouch( event )
-    if (event.phase == "began") then
-        if (ninjaBoy.sequence ~= "jump") then
-            ninjaBoy.sequence = "jump"
-            ninjaBoy:setSequence("jump")
-            ninjaBoy:play()				
+    if ( event.phase == "began" ) then
+        if ninja.sequence ~= "jump" then
+            -- make the character jump
+            ninja:setLinearVelocity( 0, -750 )
+            ninja.sequence = "jump"
+            ninja:setSequence( "jump" )
+            ninja:play()
         end
-    end    
+
+    elseif ( event.phase == "ended" ) then
+
+    end
+    return true
 end
 
-local moveNinjaBoy = function( event )
+local moveNinja = function( event )
     
-    if ninjaBoy.sequence == "run" then
-        transition.moveBy( ninjaBoy, {
-            x = 20,
-            y = 0,
-            time = 0
-            })
+    if ninja.sequence == "run" then
+        transition.moveBy( ninja, { 
+            x = 10, 
+            y = 0, 
+            time = 0 
+            } )
     end
-            if ninjaBoy.sequence == "jump" then
-       		-- can also check if the ninjaBoy has landed from a jump
-       		local ninjaBoyVelocityX, ninjaBoyVelocityY = ninjaBoy:getLinearVelocity()
-  
-       		if ninjaBoyVelocityY == 0 then
-          		-- the ninjaBoy is currently not jumping
-          		-- it was jumping so set to idle
-          		ninjaBoy.sequence = "idle"
-          		ninjaBoy:setSequence( "idle" )
-         		ninjaBoy:play()
-       		end
-end
+
+    if ninja.sequence == "jump" then
+        -- can also check if the Ninja has landed from a jump
+        local ninjaVelocityX, ninjaVelocityY = ninja:getLinearVelocity()
+        
+        if ninjaVelocityY == 0 then
+            -- the ninja is currently not jumping
+            -- it was jumping so set to idle
+            ninja.sequence = "idle"
+            ninja:setSequence( "idle" )
+            ninja:play()
+        end
+
+    end
+end 
 
 local ninjaBoyThrow = function( event )
      -- after 1 second go back to idle
