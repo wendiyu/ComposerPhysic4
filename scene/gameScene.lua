@@ -236,7 +236,7 @@ function scene:create( event )
         jumpButton.alpha = 0.5
         jumpButton.id = "jump Button"
  
-        shootButton = display.newImage("./assets/sprites/shootButton.png")
+        shootButton = display.newImage("./assets/sprites/jumpButton.png")
         shootButton.x =  display.contentWidth - 250
         shootButton.y = display.contentHeight - 80
         shootButton.alpha = 0.5
