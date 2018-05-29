@@ -54,7 +54,7 @@ local function onJumpButtonTouch( event )
         if (ninjaBoy.sequence ~= "jump") then
             ninjaBoy.sequence = "jump"
             ninjaBoy:setSequence("jump")
-            ninjaBoy:play()
+            ninjaBoy:play()				
         end
 
     elseif (event.phase == "ended") then
@@ -89,21 +89,17 @@ local moveNinjaBoy = function( event )
           ninjaBoy:setSequence( "idle" )
           ninjaBoy:play()
        end
-  
-    end  
+		
+    elseif ( event.phase == "ended" ) then
+		
+    end
+    	return ture
 end
 
 local ninjaBoyThrow = function( event )
      -- after 1 second go back to idle
      ninjaBoy.sequence = "idle"
      ninjaBoy:setSequence( "idle" )
-     ninjaBoy:play()
- end
-
-local ninjaBoyJump = function( event )
-     -- after 1 second go back to idle
-     ninjaBoy.sequence = "jump"
-     ninjaBoy:setSequence( "jump" )
      ninjaBoy:play()
  end
 
