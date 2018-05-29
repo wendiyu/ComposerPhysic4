@@ -56,16 +56,7 @@ local function onJumpButtonTouch( event )
             ninjaBoy:setSequence("jump")
             ninjaBoy:play()				
         end
-
-    elseif (event.phase == "ended") then
-        if (ninjaBoy.sequence ~= "idle") then
-            ninjaBoy.sequence = "idle"
-            ninjaBoy:setSequence("idle")
-            ninjaBoy:play()
-        end
-    end
-    return true
-    
+    end    
 end
 
 local moveNinjaBoy = function( event )
@@ -77,23 +68,17 @@ local moveNinjaBoy = function( event )
             time = 0
             })
     end
- 
-    if ninjaBoy.sequence == "jump" then
-       -- can also check if the ninjaBoy has landed from a jump
-       local ninjaBoyVelocityX, ninjaBoyVelocityY = ninjaBoy:getLinearVelocity()
+            if ninjaBoy.sequence == "jump" then
+       		-- can also check if the ninjaBoy has landed from a jump
+       		local ninjaBoyVelocityX, ninjaBoyVelocityY = ninjaBoy:getLinearVelocity()
   
-       if ninjaBoyVelocityY == 0 then
-          -- the ninjaBoy is currently not jumping
-          -- it was jumping so set to idle
-          ninjaBoy.sequence = "idle"
-          ninjaBoy:setSequence( "idle" )
-          ninjaBoy:play()
-       end
-		
-    elseif ( event.phase == "ended" ) then
-		
-    end
-    	return ture
+       		if ninjaBoyVelocityY == 0 then
+          		-- the ninjaBoy is currently not jumping
+          		-- it was jumping so set to idle
+          		ninjaBoy.sequence = "idle"
+          		ninjaBoy:setSequence( "idle" )
+         		ninjaBoy:play()
+       		end
 end
 
 local ninjaBoyThrow = function( event )
@@ -144,9 +129,9 @@ local function onshootButtonTouch( event )
         print("# of bullet: " .. tostring(#playerKunais))
     end
 
-  elseif ( event.phase == "ended" ) then
+  	elseif ( event.phase == "ended" ) then
   
-  end
+  	end
     return true
 end
 
