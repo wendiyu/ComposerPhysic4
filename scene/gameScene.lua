@@ -100,6 +100,13 @@ local ninjaBoyThrow = function( event )
      ninjaBoy:play()
  end
 
+local ninjaBoyJump = function( event )
+     -- after 1 second go back to idle
+     ninjaBoy.sequence = "jump"
+     ninjaBoy:setSequence( "jump" )
+     ninjaBoy:play()
+ end
+
 
 local checkPlayerKunaisOutOfBounds = function ( event )
 	-- check if any bullets have gone off the screen
