@@ -127,8 +127,8 @@ local function onshootButtonTouch( event )
    
         -- make a bullet appear
         local aSingleKunai = display.newImage( "./assets/sprites/Kunai.png" )
-        aSingleKunai.x = knight.x
-        aSingleKunai.y = knight.y 
+        aSingleKunai.x = ninjaBoy.x
+        aSingleKunai.y = ninjaBoy.y 
         physics.addBody( aSingleKunai, 'dynamic' )
         -- Make the object a "bullet" type object
         aSingleKunai.isBullet = true
