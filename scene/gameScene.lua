@@ -51,12 +51,12 @@ end
 
 local function onJumpButtonTouch( event )
     if ( event.phase == "began" ) then
-        if ninja.sequence ~= "jump" then
+        if ninjaBoy.sequence ~= "jump" then
             -- make the character jump
-            ninja:setLinearVelocity( 0, -750 )
-            ninja.sequence = "jump"
-            ninja:setSequence( "jump" )
-            ninja:play()
+            ninjaBoy:setLinearVelocity( 0, -750 )
+            ninjaBoy.sequence = "jump"
+            ninjaBoy:setSequence( "jump" )
+            ninjaBoy:play()
         end
 
     elseif ( event.phase == "ended" ) then
@@ -67,24 +67,24 @@ end
 
 local moveNinja = function( event )
     
-    if ninja.sequence == "run" then
-        transition.moveBy( ninja, { 
+    if ninjaBoy.sequence == "run" then
+        transition.moveBy( ninjaBoy, { 
             x = 10, 
             y = 0, 
             time = 0 
             } )
     end
 
-    if ninja.sequence == "jump" then
-        -- can also check if the Ninja has landed from a jump
-        local ninjaVelocityX, ninjaVelocityY = ninja:getLinearVelocity()
+    if ninjaBoy.sequence == "jump" then
+        -- can also check if the NinjaBoy has landed from a jump
+        local ninjaBoyVelocityX, ninjaBoyVelocityY = ninjaBoy:getLinearVelocity()
         
-        if ninjaVelocityY == 0 then
+        if ninjaBoyVelocityY == 0 then
             -- the ninja is currently not jumping
             -- it was jumping so set to idle
-            ninja.sequence = "idle"
-            ninja:setSequence( "idle" )
-            ninja:play()
+            ninjaBoy.sequence = "idle"
+            ninjaBoy:setSequence( "idle" )
+            ninjaBoy:play()
         end
 
     end
