@@ -199,7 +199,7 @@ function scene:create( event )
         name = "jump",
         start = 1,
         count = 10,
-        time = 1000,
+        time = 800,
         loopCount = 1,
         sheet = sheetJumpingNinja
     } 
