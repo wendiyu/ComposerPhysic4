@@ -65,7 +65,7 @@ local function onJumpButtonTouch( event )
     return true
 end
 
-local moveNinja = function( event )
+local moveNinjaBoy = function( event )
     
     if ninjaBoy.sequence == "run" then
         transition.moveBy( ninjaBoy, { 
