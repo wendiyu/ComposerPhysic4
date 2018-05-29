@@ -53,7 +53,7 @@ local function onJumpButtonTouch( event )
     if ( event.phase == "began" ) then
         if ninjaBoy.sequence ~= "jump" then
             -- make the character jump
-            ninjaBoy:setLinearVelocity( 0, -750 )
+            ninjaBoy:setLinearVelocity( 0, -700 )
             ninjaBoy.sequence = "jump"
             ninjaBoy:setSequence( "jump" )
             ninjaBoy:play()
