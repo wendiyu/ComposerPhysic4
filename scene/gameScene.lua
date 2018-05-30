@@ -183,7 +183,7 @@ function scene:create( event )
         name = "run",
         start = 1,
         count = 10,
-        time = 1000,
+        time = 800,
         loopCount = 0,
         sheet = sheetRunningNinja
     },
